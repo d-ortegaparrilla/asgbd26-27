@@ -1,0 +1,700 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://d-ortegaparrilla.github.io/asgbd26-27/UT1/mysql-caracteristiques.html">
+      
+      
+        <link rel="prev" href="introduccio.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Característiques de MySQL - Administració de Sistemes Gestors de Base de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#caracteristiques-de-mysql" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-header__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Administració de Sistemes Gestors de Base de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Característiques de MySQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-nav__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    Administració de Sistemes Gestors de Base de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduccio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció als sistemes gestors de bases de dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Característiques de MySQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="mysql-caracteristiques.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Característiques de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura MySQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forks-de-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forks de MySQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forks de MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-community-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL Community Edition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-enterprise-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL Enterprise Edition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percona-server-for-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percona Server for MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mariadb-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MariaDB Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura MySQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forks-de-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forks de MySQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forks de MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql-community-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL Community Edition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-enterprise-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL Enterprise Edition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percona-server-for-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percona Server for MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mariadb-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MariaDB Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="caracteristiques-de-mysql">Característiques de MySQL</h1>
+<p>Aquest SGBD és compatible amb <strong>diverses plataformes</strong>, incloent Linux, Windows o MacOS, la qual cosa el fa molt versàtil i adaptat a diferents entorns de treball. Una de les seues característiques principals és que és <strong>multithread</strong>, el que significa que pot executar múltiples fils d'execució simultanis i aprofitar la potència de sistemes amb diversos processadors, millorant així el seu rendiment en escenaris complexos.</p>
+<p>Té 2 versions: la <strong>Community Edition</strong> de codi obert i l'<strong>Enterprise Edition</strong>, propietària amb funcions addicionals.</p>
+<p>Un altre punt fort d'aquest sistema és que ofereix una varietat de <strong>motors d'emmagatzematge</strong>, la qual cosa permet als usuaris triar el que millor s'adapte a les seues necessitats. Alguns d'aquests motors tenen suport transaccional, la qual cosa garanteix la integritat de les dades, mentre que altres motors, sense aquesta capacitat, poden ser més lleugers i eficients per a certs tipus d'aplicacions.</p>
+<p>Compta amb un ampli suport per a l'estàndard <strong>SQL</strong>, cosa que facilita la seua adopció en diferents projectes i entorns. </p>
+<p>Les <strong>opcions de connexió</strong> són nombroses, incloent PHP, ODBC, sockets TCP/IP, JDBC i API per a C/C++, fet que proporciona flexibilitat en la integració amb altres aplicacions o serveis.</p>
+<p>Cal destacar que ofereix suport per a diversos <strong>idiomes</strong>. També es caracteritza per la seua <strong>facilitat</strong> d'instal·lació, ús i administració.</p>
+<h2 id="arquitectura-mysql">Arquitectura MySQL</h2>
+<p>La següent figura mostra una visió lògica de l'arquitectura de MySQL.</p>
+<figure style="align: center;">
+    <img src="./images/architecture.png">
+    <figcaption>Arquitectura de MySQL</figcaption>
+</figure>
+
+<p>Els <strong>connectors</strong> (JDBC, ODBC...) de MySQL són els drivers que utilitzen els programes client per a connectar-se al servidor.</p>
+<p>Les <strong>utilitats i eines</strong> són els programes i aplicacions que s'inclouen amb la distribució del gestor o que poden 
+instal·lar-se com a aplicacions addicionals com eines de còpia de seguretat, aplicacions administratives d'interfície gráfica o
+eines de disseny workbench.</p>
+<p>El <strong>gestor de connexions</strong> és el responsable de mantenir les múltiples connexions dels clients. Si no existira el gestor de connexions es crearia una connexió per cada client connectat fent que es consumisquen recursos en la màquina. Crear aquestes connexions i destruir-les és un procés costós. Per això el gestor de connexions pot limitar connexions concurrents i també 
+implementa un pool de connexions.</p>
+<p>Quan una consulta arriba al <strong>processador de consultes</strong>, s'analitza detalladament i es produeix una representació intermèdia de la mateixa, posteriorment MySQL pren una sèrie de decisions que pot incloure el determinar l'ordre de lectura de les taules, l'ús de certs indexes o la re-escriptura de la consulta d'una forma més eficient. </p>
+<p>MySQL utilitza un <strong>optimitzador</strong> basat en costos per a determinar la millor manera de resoldre una consulta. En molts casos MySQL pot calcular el millor pla de consulta possible, però altres vegades MySQL no té suficient informació i ha de fer suposicions sobre les dades.</p>
+<p>En versions anteriors, MySQL va utilitzar una <strong>memòria cau</strong> de consultes interna per veure si podia servir els resultats des d'allà. A mesura que va augmentar la concurrència, la memòria cau de consultes es va convertir en un coll de botella. A partir de MySQL 5.7.20, la memòria cau de consultes estava oficialment obsoleta i, a la versió 8.0, la memòria cau de consultes s'eliminà completament. Encara que la memòria cau de consultes ja no forma part del servidor MySQL, és una bona pràctica utilitzar una memòria cau dels conjunts de resultats més freqüents, utitlitzant SGBD clau-valor com <strong>memcached</strong> o <strong>Redis</strong>.</p>
+<p>El <strong>control de concurrència</strong> és el mecanisme que s'utilitza per a evitar que lectures o escriptures simultànies a la mateixa 
+porció de dades acaben en inconsistències o efectes no desitjats. El mecanisme que s'utilitza per a controlar aquest accés és el dels
+bloquejos.</p>
+<p>La <strong>gestió de recuperació</strong> és el mecanisme que proporciona MySQL per a poder recuperar-se en el cas que es produïsquen errors que anaren a deixar les dades en un estat incosistent.</p>
+<p>Una <strong>transacció</strong> és un conjunt d'ordres que s'executen formant una unitat de treball, és a dir, en forma indivisible o atòmica. 
+Un SGBD es diu transaccional si és capaç de mantenir la integritat de dades, fent que aquestes transaccions no puguen finalitzar en 
+un estat intermedi. Quan per alguna causa el sistema ha de cancel·lar la transacció, comença a desfer les ordres executades fins a deixar la base de dades en el seu estat inicial (anomenat punt d'integritat), com si l'ordre de la transacció mai s'haguera realitzat. Una transacció ha de comptar amb <strong>ACID</strong> (un acrònim anglès) que vol dir: <strong>Atomicitat</strong>, <strong>Consistència</strong>, <strong>Aïllament</strong> (Isolation) i <strong>Durabilitat</strong>. </p>
+<figure style="align: center;">
+    <img src="./images/ACID.png">
+    <figcaption>ACID</figcaption>
+</figure>
+
+<p>Els <strong>motors d'emmagatzematge</strong> són els responsables d'emmagatzemar i recuperar totes les dades emmagatzemades a MySQL. Igual que els diferents sistemes de fitxers disponibles per a Linux, cada motor d'emmagatzematge té els seus propis avantatges i inconvenients. El servidor es comunica amb ells mitjançant l'API del motor d'emmagatzematge. Aquesta API amaga les diferències entre els motors d'emmagatzematge i les fa molt transparents a la capa de consulta. També conté un parell de dotzenes de funcions de baix nivell que realitzen operacions com ara "iniciar una transacció" o "obtenir la fila que té aquesta clau primària". Els motors d'emmagatzematge no analitzen SQL ni es comuniquen entre ells; simplement responen a les peticions del servidor.</p>
+<h2 id="forks-de-mysql">Forks de MySQL</h2>
+<p>Com que el codi font de MySQL és obert i gratuït, existeixen nous projectes poden bifurcar el codi sense el permís del seu creador original. Fem una ullada a algunes de les bifurcacions més destacades.</p>
+<h3 id="mysql-community-edition">MySQL Community Edition</h3>
+<p>MySQL Community Edition, també coneguda com la versió upstream o vainilla de MySQL, és la versió de codi obert distribuïda per Oracle. Aquesta versió impulsa el desenvolupament del motor InnoDB i de noves funcions, i és la primera que rep actualitzacions, noves funcions i correccions d'errors.</p>
+<h3 id="mysql-enterprise-edition">MySQL Enterprise Edition</h3>
+<p>MySQL Enterprise Edition és una versió amb llicència comercial (la qual cosa significa que cal pagar per utilitzar-la, com una llicència de Windows). També distribuït per Oracle, conté totes les funcionalitats de l'edició comunitària més funcions exclusives de seguretat, còpia de seguretat i alta disponibilitat.</p>
+<h3 id="percona-server-for-mysql">Percona Server for MySQL</h3>
+<p>La distribució Percona de MySQL és un reemplaçament gratuït i de codi obert de MySQL Community Edition. El desenvolupament segueix de prop aquesta versió, centrant-se a millorar el rendiment i l'ecosistema global de MySQL. Percona Server també inclou millores addicionals com el motor MyRocks, un connector de registre d'auditoria i un connector d'autenticació PAM.</p>
+<h3 id="mariadb-server">MariaDB Server</h3>
+<p>MariaDB Server és, amb diferència, la bifurcació que s'ha allunyat més de MySQL de vainilla. En els darrers anys ha desenvolupat noves funcions i motors com el MariaDB ColumnStore, i va ser la primera base de dades a integrar la funcionalitat de clúster de Galera 4.</p>
+<h2 id="exercici">Exercici</h2>
+<p>Criteris d'avaluació 1a, 1b, 1c, 1d, 1e.</p>
+<ul>
+<li>Estudia els distints forks de MySQL disponibles. A continuació el professor dirigirà un debat on hauràs de raonar davant qüestions sobre les situacions on seria convenient fer ús d'un o un altre tipus. </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
