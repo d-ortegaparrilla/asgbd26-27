@@ -1,0 +1,776 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://d-ortegaparrilla.github.io/asgbd26-27/UT1/introduccio.html">
+      
+      
+        <link rel="prev" href="../index.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introducció als sistemes gestors de bases de dades - Administració de Sistemes Gestors de Base de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccio-als-sistemes-gestors-de-bases-de-dades" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-header__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Administració de Sistemes Gestors de Base de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducció als sistemes gestors de bases de dades
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-nav__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    Administració de Sistemes Gestors de Base de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció als sistemes gestors de bases de dades
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="introduccio.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció als sistemes gestors de bases de dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definicio-dun-sgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definició d'un SGBD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-dun-sgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura d'un SGBD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipus-de-sgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipus de SGBD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipus de SGBD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relacional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NoSQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clau-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clau-valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basades-en-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basades en documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definicio-dun-sgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definició d'un SGBD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-dun-sgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura d'un SGBD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipus-de-sgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipus de SGBD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipus de SGBD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relacional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NoSQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clau-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clau-valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basades-en-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basades en documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduccio-als-sistemes-gestors-de-bases-de-dades">Introducció als sistemes gestors de bases de dades</h1>
+<p>Actualment, la informació és un dels actius més valuosos per a moltes empreses, per això han anat proliferant les empreses que comercien amb les nostres dades i, sense adonar-nos, cada cop més, la majoria d'empreses tecnològiques els recopilen en allò que s'anomena empremta digital. Al mòdul de Gestió de Bases de Dades es va veure què són les dades, la diferència amb la informació i per què és important gestionar-les adequadament, i d'aquesta gestió sorgeix l'origen de les bases de dades. Les eines que ens permeten crear i gestionar una base de dades conformen el que és un sistema gestor de bases de dades.</p>
+<p>Mitjançant les bases de dades (BD) podem emmagatzemar informació i després recuperar-la de diferents formes, per exemple, inserint registres i després utilitzant consultes a la BD. En aquest curs coneixerem quines eines hi ha darrere; aquestes ens permeten crear una BD, emmagatzemar informació i després realitzar diferents operacions per recuperar les dades de diverses maneres.</p>
+<p>Començarem veient què és un sistema gestor de bases de dades (SGBD), i quines són les seues funcions, la seua estructura interna i els seus components. També analitzarem l'arquitectura, els diferents tipus d'SGBD i les característiques, i triarem el tipus d'SGBD més apropiat en cada cas.</p>
+<h2 id="definicio-dun-sgbd">Definició d'un SGBD</h2>
+<p>Un <strong>SGBD</strong> (en anglés DBMS <em>Database Management System</em>) és una eina software que permet als usuaris <strong>definir</strong>, <strong>crear</strong>, <strong>administrar</strong>, <strong>manipular</strong> i <strong>mantindre</strong> bases de dades, proporcionant-les d'un accés controlat. Aquesta eina software pot estar formada per més d'una aplicació. Els SGBD van sorgir de la necessitat d'administrar i gestionar les BD; per això, actualment al mercat podem trobar-nos amb diversos tipus de SGBD, amb distintes característiques, arquitectura i funcions.</p>
+<p>La principal característica dels SGBD és que proporcionen als usuaris cert nivell d'abstracció de les dades; és a dir, l'usuari de la BD no té per què conèixer, per exemple, com s'emmagatzemaran les dades al suport físic.</p>
+<figure style="align: center;">
+    <img src="./images/sgbd.png">
+    <figcaption>Esquema simplificat d'ús d'un SGBD</figcaption>
+</figure>
+
+<h2 id="arquitectura-dun-sgbd">Arquitectura d'un SGBD</h2>
+<p>El concepte d'arquitectura d'un SGBD té que veure amb la separació de les dades respecte els programes que els gestionen i manipulen. Quan sorgire els primers programes de gestió, les dades estaven fortament lligades al programa d'aplicació que els manipulava. Per aquest motiu, a 1975 el comité <strong>ANSI-SPARC</strong> va proposar una arquitectura amb tres nivells d'abstracció, què garanteix la independència física i lògica de les dades. Aquests nivells són els següents: <strong>nivell intern o físic</strong>, <strong>nivell conceptual</strong> i <strong>nivell extern</strong>.</p>
+<p>La <strong>independència física</strong> és la capacitat de realitzar canvis a l'esquema intern sense necessitat de tindre que modificar l'esquema conceptual o externs.</p>
+<p>La <strong>independència lògica</strong> és la capacitat de poder canviar l'esquema conceptual sense tindre que modificar els esquemes externs.</p>
+<p>El <strong>nivell intern o físic</strong> està relacionat amb l'emmagatzematge físic; representa la manera en la qual estan emmagatzemats les dades. Descriu l'estructura física de la BD mitjançant un <strong>esquema intern</strong>, què especifica els detalls de com s'emmagatzemen físicament les dades: els arxius que contenen la informació, com estan organitzats, els mètodes d'accés als registres, els tipus de registres, la longitud, els camps que els composen, etc.</p>
+<p>El <strong>nivell extern</strong> o de visió és el nivell on interactuen els usuaris o grups d'usuaris; per tant, es descriuen diversos <strong>esquemes externs</strong> o <strong>vistes d'usuaris</strong> amb la visió individual de la BD de cadascun d'ells.</p>
+<p>El <strong>nivell conceptual</strong> representa la informació continguda en la BD; dissenya l'estructura de tota la BD per a un conjunt d'usuaris de la mateixa organització, mitjanánt un <strong>esquema conceptual</strong>. Aquest esquema descriu entitats, atributs, relacions, operaciones dels usuaris i restriccions, ocultant els detalls de les estructures físiques d'emmagatzematge.</p>
+<figure style="align: center;">
+    <img src="./images/ansi-sparc.png">
+    <figcaption>Arquitectura ANSI/SPARC d'un SGBD</figcaption>
+</figure>
+
+<h2 id="components">Components</h2>
+<p>Els SGBD compten amb els següents components bàsics:</p>
+<ul>
+<li><strong>Diccionari de dades</strong>. Compté tota la informació que descriuen les dades de la nostra BD; aquesta informació també s'anomena metadades. El diccionari de dades està format per dades sobre les dades, com a nom de taules, tipus de dades de les seues columnes, noms de bases de dades, restriccions...</li>
+<li><strong>Llenguatge de definició de dades (DDL)</strong>. S'utilitza per a implementar l'esquema conceptual i intern de la BD. És a dir, els objectes (taules o vistes) de la BD, la seua estructura, les seues relacions i les seues restriccions.</li>
+<li><strong>Llenguatge de manipulació de dades (DML)</strong>. Proporciona un mecanisme per a inserir, actualitzar i esborrar la informació continguda a la BD.</li>
+</ul>
+<p>Als SGBD relacionals, el llenguatge estàndar que s'utilitza és l'SQL (<em>Structured Query Language</em>), què té instruccions de definició i manipulació de dades.</p>
+<p>Els SGBD disposen d'altres components com ara els següents:</p>
+<ul>
+<li><strong>Control de dades redundants</strong>. Estableix una sèrie de condicions perquè les dades no estiguen repetides de manera descontrolada i afavorisca la consistència d'aquestos, facilitant el seu manteniment.</li>
+<li><strong>Restriccions d'accés</strong>. Per garantir que tan sols les persones autoritzades puguen accedir a les dades que les corresponguen.</li>
+<li><strong>Garantir la integritat</strong>. Controla que les dades emmagatzemades siguen coherents amb altres dades amb els que tinguen relació.</li>
+<li><strong>Recuperació de dades</strong>. Permet realitzar còpies de seguretat de la BD i restablir-les en cas de necessitat.</li>
+<li><strong>Control d'accessos concurrents</strong>. Gestiona que diversos usuaris puguen accedir al mateix temps a les mateixes dades de manera segura.</li>
+<li><strong>Gestionar transaccions</strong>. Aquesta funció està lligada a la de garantir la integritat, ja que totes les transaccions dependents o relacionades entre sí es realitzen totes o cap. Les instruccions més delicades són les que provoquen canvis a la BD.</li>
+<li><strong>Optimitzador de consultes</strong>. Busca la millor estratègia per a executar les consultes.</li>
+<li><strong>Planificador</strong>. Permet automatitzar i programar tasques.</li>
+</ul>
+<h2 id="tipus-de-sgbd">Tipus de SGBD</h2>
+<p>Igual que la música, les bases de dades es poden classificar en un o més estils. Una cançó individual pot compartir totes les mateixes notes amb altres cançons, però algunes són més adequades per a determinats usos.</p>
+<h3 id="relacional">Relacional</h3>
+<p>El model relacional és generalment el que ens ve al cap a la majoria de persones amb experiència en BD. Els SGBD relacionals (RDBMS) són sistemes basats en la teoria de conjunts implementats com a taules bidimensionals amb files i columnes. El mitjà canònic d'interactuar amb un RDBMS és escriure consultes en SQL. Els valors de les dades s'escriuen i poden ser numèrics, cadenes, dates, blobs no interpretats o altres tipus. Els tipus són forçats pel sistema. És important destacar que les taules es poden unir i transformar en taules noves i més complexes fent ús d'operacions basades a l'àlgebra relacional.</p>
+<p>Els RDBMS continuen utilitzant-se a gran multitud de sistemes d'informació, i incideixen en la consistència i integritat de les dades.</p>
+<p>Exemples: Oracle Database, SQL Server, PostgreSQL, MySQL, MariaDB.</p>
+<h3 id="nosql">NoSQL</h3>
+<p>El terme NoSQL (<em>Not only SQL</em>) són SGBD amb dades que no segueixen el model relacional. Aquests SGBD prioritzen l'escabilitat i la disponibilitat en lloc de la integritat de les dades.</p>
+<p>Hi han diversos tipus de BD NoSQL. Ací ens centrarem als de clau-valor i als basats en documents.</p>
+<h4 id="clau-valor">Clau-valor</h4>
+<p>Les bases de dades de clau-valor (KV <em>Key-Values</em>) és el model més senzill NoSQL. Com el seu nom indica, una BD KV emparella claus amb valors de la mateixa manera que ho faria un mapa (o una taula hash) en qualsevol llenguatge de programació popular. </p>
+<p>El seu funcionament és similar a una taula relacional de dos columnes, per exemple, id i nom, on id actua com a clau i nom com a valor. En una BD clau-valor el valor pot ser una dada simple o un objecte binari.</p>
+<p>Aquests SGBD només permeten consultar les dades mitjançant la clau sense tindre coneiximent del tipus de dades que té el valor.</p>
+<p>Degut que els requisits exigits són mínims, estos SGBD poden tindre un rendiment increïble en una gran varietat d'escenaris, però no són útils quan es tenen necessitats complexes de consultes i agregació.</p>
+<figure style="align: center;">
+    <img src="./images/key-value.jpg">
+    <figcaption>Representació d'un magatzem clau-valor</figcaption>
+</figure>
+
+<p>Els SGBD clau-valor s'utilizen en una àmplia gama d'aplicacions, com ara:</p>
+<ul>
+<li>Emmagatzament cau (caché) de dades de BD relacionals per millorar el rendiment.</li>
+<li>Seguiment d'atributs transitoris d'una aplicació web, com per exemple un carret de la compra.</li>
+<li>Emmagatzament d'informació de dades d'usuari i configuració per a aplicacions mòbils.</li>
+<li>Emmagatzament d'objectes grans, com ara imatges i arxius d'audio.</li>
+</ul>
+<p>Exemples: Redis, Valkey, Memcached, Amazon DynamoDB, Amazon MemoryDB, Azure CosmosDB.</p>
+<h4 id="basades-en-documents">Basades en documents</h4>
+<p>Les BD basades en documents es poden veure com una extensió de les BD clau-valor. Aquest tipus de BD emmagatzema els valors com a entitats semiestructurades anomenades documents, normalment en un format estàndard com la notació d'objectes JavaScript (JSON), o representació binàries d'aquest.</p>
+<p>El benefici principal d'utilitzar una BD de documents prové del fet que no està limitat a fer consultes només per clau, al contrari que les BD clau-valor. Les dades deixen de ser opaces de manera que la BD podrà realitzar treball addicional sense haver de traduir les dades a un format que comprengui.</p>
+<p>Els documents s'agrupen en col·leccions o bases de dades, depenent del sistema, cosa que permet agrupar documents.
+Els documents contenen un o més camps, on cada camp conté un valor amb un tipus, ja sigui cadena, sencer, flotant, data, binari o array o un altre document.</p>
+<figure style="align: center;">
+    <img src="./images/json1.png">
+    <figcaption>Document en format JSON</figcaption>
+</figure>
+
+<p>Una de les característiques més importants de les BD de documents és que no cal definir un esquema fix abans d'afegir dades a la BD. Simplement en afegir un document a la BD es creen les estructures de dades subjacents necessàries per recolzar el document. La manca d'un esquema fix brinda als desenvolupadors més flexibilitat amb les BD de documents que amb les BD relacionals.</p>
+<figure style="align: center;">
+    <img src="./images/json2.png">
+    <figcaption>Document amb camps distints</figcaption>
+</figure>
+
+<p>Aquests SGBD són adequats per a una gran varietat de casos d'ús, incloent:</p>
+<ul>
+<li>Suport de backend per a llocs web amb gran volum de lectures i escriptures.</li>
+<li>Gestió de tipus de dades amb atributs variables, com per exemple productes.</li>
+<li>Seguiment de tipus variables de metadades.</li>
+<li>Aplicacions que utilitzen estructures de dades JSON.</li>
+</ul>
+<p>Exemples: MongoDB, CouchDB, Amazon DocumentDB, Amazon DynamoDB, Azure CosmosDB.</p>
+<h2 id="exercici">Exercici</h2>
+<p>Criteris d'avaluació 1a, 1b, 1c, 1d, 1e.</p>
+<ul>
+<li>Tens 20 minuts per a empapar-te fent ús dels recursos que consideres sobre les avantatges i inconvenients dels 3 tipus de SGBD vists a la teoria. A continuació el professor dirigirà un debat on hauràs de raonar davant qüestions sobre les situacions on seria convenient fer ús d'un o un altre tipus. </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,995 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://d-ortegaparrilla.github.io/asgbd26-27/index.html">
+      
+      
+      
+        <link rel="next" href="UT1/introduccio.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Administració de Sistemes Gestors de Base de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inici" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-header__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Administració de Sistemes Gestors de Base de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-nav__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="favicon.png" alt="logo">
+
+    </a>
+    Administració de Sistemes Gestors de Base de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resultats-daprenentatge-del-modul-dasgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultats d'aprenentatge del mòdul d'ASGBD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resultats d&#39;aprenentatge del mòdul d&#39;ASGBD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ra-1-implanta-sistemas-gestores-de-bases-de-datos-analizando-sus-caracteristicas-y-ajustandose-a-los-requerimientos-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA 1. Implanta sistemas gestores de bases de datos analizando sus características y ajustándose a los requerimientos del sistema.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA 1. Implanta sistemas gestores de bases de datos analizando sus características y ajustándose a los requerimientos del sistema.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra2-configura-el-sistema-gestor-de-bases-de-datos-interpretando-las-especificaciones-tecnicas-y-los-requisitos-de-explotacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA2. Configura el sistema gestor de bases de datos interpretando las especificaciones técnicas y los requisitos de explotación.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA2. Configura el sistema gestor de bases de datos interpretando las especificaciones técnicas y los requisitos de explotación.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra3-implanta-metodos-de-control-de-acceso-utilizando-asistentes-herramientas-graficas-y-comandos-del-lenguaje-del-sistema-gestor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA3. Implanta métodos de control de acceso utilizando asistentes, herramientas gráficas y comandos del lenguaje del sistema gestor.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA3. Implanta métodos de control de acceso utilizando asistentes, herramientas gráficas y comandos del lenguaje del sistema gestor.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra4-automatiza-tareas-de-administracion-del-gestor-describiendolas-y-utilizando-guiones-de-sentencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA4. Automatiza tareas de administración del gestor describiéndolas y utilizando guiones de sentencias.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA4. Automatiza tareas de administración del gestor describiéndolas y utilizando guiones de sentencias.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra5-optimiza-el-rendimiento-del-sistema-aplicando-tecnicas-de-monitorizacion-y-realizando-adaptaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA5. Optimiza el rendimiento del sistema aplicando técnicas de monitorización y realizando adaptaciones.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA5. Optimiza el rendimiento del sistema aplicando técnicas de monitorización y realizando adaptaciones.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra6-aplica-criterios-de-disponibilidad-analizandolos-y-ajustando-la-configuracion-del-sistema-gestor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA6. Aplica criterios de disponibilidad analizándolos y ajustando la configuración del sistema gestor.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA6. Aplica criterios de disponibilidad analizándolos y ajustando la configuración del sistema gestor.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avaluacio-i-temporalitzacio-del-modul" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaluació i temporalització del mòdul
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="UT1/introduccio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció als sistemes gestors de bases de dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resultats-daprenentatge-del-modul-dasgbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultats d'aprenentatge del mòdul d'ASGBD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resultats d&#39;aprenentatge del mòdul d&#39;ASGBD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ra-1-implanta-sistemas-gestores-de-bases-de-datos-analizando-sus-caracteristicas-y-ajustandose-a-los-requerimientos-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA 1. Implanta sistemas gestores de bases de datos analizando sus características y ajustándose a los requerimientos del sistema.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA 1. Implanta sistemas gestores de bases de datos analizando sus características y ajustándose a los requerimientos del sistema.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra2-configura-el-sistema-gestor-de-bases-de-datos-interpretando-las-especificaciones-tecnicas-y-los-requisitos-de-explotacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA2. Configura el sistema gestor de bases de datos interpretando las especificaciones técnicas y los requisitos de explotación.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA2. Configura el sistema gestor de bases de datos interpretando las especificaciones técnicas y los requisitos de explotación.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra3-implanta-metodos-de-control-de-acceso-utilizando-asistentes-herramientas-graficas-y-comandos-del-lenguaje-del-sistema-gestor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA3. Implanta métodos de control de acceso utilizando asistentes, herramientas gráficas y comandos del lenguaje del sistema gestor.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA3. Implanta métodos de control de acceso utilizando asistentes, herramientas gráficas y comandos del lenguaje del sistema gestor.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra4-automatiza-tareas-de-administracion-del-gestor-describiendolas-y-utilizando-guiones-de-sentencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA4. Automatiza tareas de administración del gestor describiéndolas y utilizando guiones de sentencias.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA4. Automatiza tareas de administración del gestor describiéndolas y utilizando guiones de sentencias.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra5-optimiza-el-rendimiento-del-sistema-aplicando-tecnicas-de-monitorizacion-y-realizando-adaptaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA5. Optimiza el rendimiento del sistema aplicando técnicas de monitorización y realizando adaptaciones.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA5. Optimiza el rendimiento del sistema aplicando técnicas de monitorización y realizando adaptaciones.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra6-aplica-criterios-de-disponibilidad-analizandolos-y-ajustando-la-configuracion-del-sistema-gestor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA6. Aplica criterios de disponibilidad analizándolos y ajustando la configuración del sistema gestor.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RA6. Aplica criterios de disponibilidad analizándolos y ajustando la configuración del sistema gestor.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criteris-davaluacio_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris d'avaluació:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avaluacio-i-temporalitzacio-del-modul" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaluació i temporalització del mòdul
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<style type="text/css">
+    ol { list-style-type: lower-alpha; }
+</style>
+
+<h1 id="inici">Inici</h1>
+<p>Apunts creats per a la impartició del mòdul d'Administració de Sistemes Gestors de Bases de Dades (ASGBD) de 2n curs del cicle formatiu de grau superior d'Administració de Sistemes Informàtics en Xarxa a l'<a href="https://iespacomolla.es/">IES Poeta Paco Mollá</a> de Petrer.</p>
+<p>El títol i ensenyaments mínims del cicle formatiu estan fixat pel <a href="https://www.boe.es/eli/es/rd/2009/10/30/1629">Real Decreto 1629/2009</a>.</p>
+<h2 id="resultats-daprenentatge-del-modul-dasgbd">Resultats d'aprenentatge del mòdul d'ASGBD</h2>
+<h3 id="ra-1-implanta-sistemas-gestores-de-bases-de-datos-analizando-sus-caracteristicas-y-ajustandose-a-los-requerimientos-del-sistema">RA 1. Implanta sistemas gestores de bases de datos analizando sus características y ajustándose a los requerimientos del sistema.</h3>
+<h5 id="criteris-davaluacio">Criteris d'avaluació:</h5>
+<ol>
+<li>Se ha reconocido la utilidad y función de cada uno de los elementos de un sistema gestor de bases de datos.</li>
+<li>Se han analizado las características de los principales sistemas gestores de bases de datos. </li>
+<li>Se ha seleccionado el sistema gestor de bases de datos.</li>
+<li>Se ha identificado el software necesario para llevar a cabo la instalación.</li>
+<li>Se ha verificado el cumplimiento de los requisitos hardware.</li>
+<li>Se han instalado sistemas gestores de bases de datos. </li>
+<li>Se ha documentado el proceso de instalación.</li>
+<li>Se ha interpretado la información suministrada por los mensajes de error y ficheros de registro.</li>
+<li>Se han resuelto las incidencias de la instalación.</li>
+<li>Se ha verificado el funcionamiento del sistema gestor de bases de datos.</li>
+</ol>
+<h3 id="ra2-configura-el-sistema-gestor-de-bases-de-datos-interpretando-las-especificaciones-tecnicas-y-los-requisitos-de-explotacion">RA2. Configura el sistema gestor de bases de datos interpretando las especificaciones técnicas y los requisitos de explotación.</h3>
+<h5 id="criteris-davaluacio_1">Criteris d'avaluació:</h5>
+<ol>
+<li>Se han descrito las condiciones de inicio y parada del sistema gestor.</li>
+<li>Se ha seleccionado el motor de base de datos.</li>
+<li>Se han asegurado las cuentas de administración.</li>
+<li>Se han configurado las herramientas y software cliente del sistema gestor.</li>
+<li>Se ha configurado la conectividad en red del sistema gestor.</li>
+<li>Se han definido las características por defecto de las bases de datos.</li>
+<li>Se han definido los parámetros relativos a las conexiones (tiempos de espera, número máximo de conexiones, entre otros).</li>
+<li>Se ha documentado el proceso de configuración. </li>
+</ol>
+<h3 id="ra3-implanta-metodos-de-control-de-acceso-utilizando-asistentes-herramientas-graficas-y-comandos-del-lenguaje-del-sistema-gestor">RA3. Implanta métodos de control de acceso utilizando asistentes, herramientas gráficas y comandos del lenguaje del sistema gestor.</h3>
+<h5 id="criteris-davaluacio_2">Criteris d'avaluació:</h5>
+<ol>
+<li>Se han creado vistas personalizadas para cada tipo de usuario.</li>
+<li>Se han creado sinónimos de tablas y vistas.</li>
+<li>Se han definido y eliminado cuentas de usuario.</li>
+<li>Se han identificado los privilegios sobre las bases de datos y sus elementos.</li>
+<li>Se han agrupado y desagrupado privilegios.</li>
+<li>Se han asignado y eliminado privilegios a usuarios.</li>
+<li>Se han asignado y eliminado grupos de privilegios a usuarios.</li>
+<li>Se ha garantizado el cumplimiento de los requisitos de seguridad.</li>
+</ol>
+<h3 id="ra4-automatiza-tareas-de-administracion-del-gestor-describiendolas-y-utilizando-guiones-de-sentencias">RA4. Automatiza tareas de administración del gestor describiéndolas y utilizando guiones de sentencias.</h3>
+<h5 id="criteris-davaluacio_3">Criteris d'avaluació:</h5>
+<ol>
+<li>Se ha reconocido la importancia de automatizar tareas administrativas.</li>
+<li>Se han descrito los distintos métodos de ejecución de guiones.</li>
+<li>Se han identificado las herramientas disponibles para redactar guiones.</li>
+<li>Se han definido y utilizado guiones para automatizar tareas.  </li>
+<li>Se han identificado los eventos susceptibles de activar disparadores.</li>
+<li>Se han definido disparadores.   </li>
+<li>Se han utilizado estructuras de control de flujo.</li>
+<li>Se han adoptado medidas para mantener la integridad y consistencia de la información. </li>
+</ol>
+<h3 id="ra5-optimiza-el-rendimiento-del-sistema-aplicando-tecnicas-de-monitorizacion-y-realizando-adaptaciones">RA5. Optimiza el rendimiento del sistema aplicando técnicas de monitorización y realizando adaptaciones.</h3>
+<h5 id="criteris-davaluacio_4">Criteris d'avaluació:</h5>
+<ol>
+<li>Se han identificado las herramientas de monitorización disponibles para el sistema gestor.</li>
+<li>Se han descrito las ventajas e inconvenientes de la creación de índices.</li>
+<li>Se han creado índices en tablas y vistas. </li>
+<li>Se ha optimizado la estructura de la base de datos. </li>
+<li>Se han optimizado los recursos del sistema gestor. </li>
+<li>Se ha obtenido información sobre el rendimiento de las consultas para su optimización. </li>
+<li>Se han programado alertas de rendimiento. </li>
+<li>Se han realizado modificaciones en la configuración del sistema operativo para mejorar el rendimiento del gestor.</li>
+</ol>
+<h3 id="ra6-aplica-criterios-de-disponibilidad-analizandolos-y-ajustando-la-configuracion-del-sistema-gestor">RA6. Aplica criterios de disponibilidad analizándolos y ajustando la configuración del sistema gestor.</h3>
+<h5 id="criteris-davaluacio_5">Criteris d'avaluació:</h5>
+<ol>
+<li>Se ha reconocido la utilidad de las bases de datos distribuidas.</li>
+<li>Se han descrito las distintas políticas de fragmentación de la información.</li>
+<li>Se ha implantado una base de datos distribuida homogénea.</li>
+<li>Se ha creado una base de datos distribuida mediante la integración de un conjunto de bases de datos preexistentes.</li>
+<li>Se ha configurado un «nodo» maestro y varios «esclavos» para llevar a cabo la replicación del primero.</li>
+<li>Se ha configurado un sistema de replicación en cadena.</li>
+<li>Se ha comprobado el efecto de la parada de determinados nodos sobre los sistemas distribuidos y replicados.</li>
+</ol>
+<h2 id="avaluacio-i-temporalitzacio-del-modul">Avaluació i temporalització del mòdul</h2>
+<p>La qualificació de cada RA s'obtindrà en base a la realització de 2 tipus d'instruments de qualificació: exercicis pràctics durant el desenvolupament de cada unitat de treball (UT) i preguntes d'examen al finalitzar cada UT. Cada UT es correspon a un RA i tindrà un percentatge de la qualificació final del mòdul. </p>
+<p>La qualificació de cada RA s'obtindrà en base a:
+Nota RA = 0,2<em>(Mitjana d'exercicis pràctics del RA) + 0,8</em>(Mitjana preguntes examen del RA)</p>
+<p>Per a la superació del mòdul, l'alumnat ha d'obtindre una qualificació igual o major a 5 en cada RA. Es contemplen 3 casos:</p>
+<ol>
+<li>Si es compleix l'anterior requisit la qualificació final serà la suma ponderada de la qualificació obtinguda a cada RA, arrodonida al número enter més pròxim. </li>
+<li>Si no es compleix l'anterior requisit i la suma ponderada de la qualificació obtinguda a cada RA es major o igual que 4.5, la qualificació serà de 4.</li>
+<li>Si no es compleix l'anterior requisit i la suma ponderada de la qualificació obtinguda a cada RA es menor que 4.5, la qualificació serà aquesta suma ponderada arrodonida al número enter més pròxim. </li>
+</ol>
+<p>Gran part dels CE del RA6 es durà a terme a la formació de l'empresa. El 30% de la seua qualificació serà d'acord al treball presencial a l'aula mentre que el 70% serà obtingut de la qualificació obtesa a la formació a l'empresa. En cas de no superar aquest RA l'alumne haurà de realitzar una sèrie d'exercicis pràctics i preguntes d'examen associats als CE vists a l'empresa.</p>
+<p>A continuació es mostra el llistat d'UT, així com el seu RA associat i el percentatge sobre el total del mòdul.</p>
+<table>
+<thead>
+<tr>
+<th>Títol de la UT</th>
+<th>RA</th>
+<th>Percentatge</th>
+<th>Sessions</th>
+<th>Trimestre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="UT1/introduccio.html">UT1. Instal·lació de sistemes gestors de base de dades.</a></td>
+<td>RA1</td>
+<td>10%</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr>
+<td>UT2. Configuració de sistemes gestors de base de dades.</td>
+<td>RA2</td>
+<td>15%</td>
+<td>9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>UT3. Control d'accés.</td>
+<td>RA3</td>
+<td>15%</td>
+<td>9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>UT4. Automatització de tasques. Construcció de guions d'administració.</td>
+<td>RA4</td>
+<td>20%</td>
+<td>12</td>
+<td>1-2</td>
+</tr>
+<tr>
+<td>UT5. Optimització i monitorització.</td>
+<td>RA5</td>
+<td>20%</td>
+<td>12</td>
+<td>2</td>
+</tr>
+<tr>
+<td>UT6. Bases de dades distribuïdes i replicades.</td>
+<td>RA6</td>
+<td>20%</td>
+<td>12</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Els RAs no superats es podran recuperar abans la finalització de l'avaluació final ordinària. Aquesta recuperació es realitzarà mitjançant un examen associat a cada RA no superat. No es valoraran en aquesta recuperació cap pràctica realitzada dels RAs no superats.</p>
+<p>D'igual manera es podran recuperar els RA no superats a l'avaluació ordinària, mitjançan un nou examen a realitzar abans la finalització de l'avaluació extraordinària. A l'avaluació extraordinària es mantindran les qualificacions obtingudes als RA superats a l'avaluació ordinària.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
