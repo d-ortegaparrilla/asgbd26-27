@@ -1,0 +1,38 @@
+site_name: Administració de Sistemes Gestors de Base de Dades
+site_url: https://d-ortegaparrilla.github.io/asgbd26-27/
+use_directory_urls: false
+theme:
+  language: ca
+  favicon: favicon.png
+  name: material
+  palette:
+    primary: light green
+    accent: teal
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: favicon.png
+  features:
+    - header.autohide
+    - content.code.copy
+
+    
+
+extra:
+  search:
+    language: "es"
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+ 
