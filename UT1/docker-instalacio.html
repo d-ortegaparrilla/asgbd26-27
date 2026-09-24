@@ -1,0 +1,793 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://d-ortegaparrilla.github.io/asgbd26-27/UT1/docker-instalacio.html">
+      
+      
+        <link rel="prev" href="mysql-instalacio.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Instal·lació de MySQL amb un contenidor de Docker - Administració de Sistemes Gestors de Base de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installacio-de-mysql-amb-un-contenidor-de-docker" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-header__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Administració de Sistemes Gestors de Base de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instal·lació de MySQL amb un contenidor de Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-nav__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    Administració de Sistemes Gestors de Base de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT1. Instal·lació de sistemes gestors de base de dades.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT1. Instal·lació de sistemes gestors de base de dades.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduccio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció als sistemes gestors de bases de dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mysql-caracteristiques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Característiques de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mysql-instalacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL amb un contenidor de Docker
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="docker-instalacio.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL amb un contenidor de Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acces-a-mysql-des-de-lexterior-del-contenidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accés a MySQL des de l'exterior del contenidor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desplegament-amb-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desplegament amb Docker Compose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicialitzacio-automatica-de-la-base-de-dades-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inicialització automàtica de la base de dades (Entrypoint)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acces-a-mysql-des-de-lexterior-del-contenidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accés a MySQL des de l'exterior del contenidor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desplegament-amb-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desplegament amb Docker Compose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volums" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volums
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicialitzacio-automatica-de-la-base-de-dades-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inicialització automàtica de la base de dades (Entrypoint)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installacio-de-mysql-amb-un-contenidor-de-docker">Instal·lació de MySQL amb un contenidor de Docker</h1>
+<p>Podem instal·lar MySQL mitjançant la imatge oficial que es troba a Docker Hub.</p>
+<p>Primerament haurem d'instal·lar Docker al nostre sistema operatiu. La següent instrucció instal·la Docker a una distribució Ubuntu de Linux.</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo apt install docker.io
+</code></pre></div>
+<p>Ens baixarem la imatge de MySQL de l'última versió LTS (9.7).</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo docker pull mysql:9.7
+</code></pre></div>
+<p>Posteriorment podem crear i executar un contenidor basat a eixa imatge.</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo docker run --name {nom_contenidor} -e MYSQL_ROOT_PASSWORD={password_usuari} -d mysql:9.7
+</code></pre></div>
+<p>A l'anterior instrucció em de donar un nom al contenidor amb el paràmetre <code>--name</code> i donem valor a la variable d'entorn <code>MYSQL_ROOT_PASSWORD</code> amb el paràmetre <code>-e</code>.</p>
+<p>Amb el paràmetre <code>-d</code> s'executa el contenidor en segon pla, mentre que finalment es troba el nom de la imatge base del contenidor.</p>
+<p>Podem accedir a l'interior del contenidor i executar un terminal en ell. El pàrametre <code>-it</code> permet obrir un terminal interactiu.</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo docker exec -it {nom_contenidor} bash
+</code></pre></div>
+<p>Ja dins del contenidor podem executar el client <strong>mysql</strong> de la manera habitual.</p>
+<div class="language-text highlight"><pre><span></span><code>$ mysql -u root -p
+</code></pre></div>
+<h2 id="acces-a-mysql-des-de-lexterior-del-contenidor">Accés a MySQL des de l'exterior del contenidor</h2>
+<p>Per defecte tots els serveis del contenidor de Docker estan aïllats de l'exterior. Si volem accedir des de fora del contenidor als serveis haurem de mapejar el port del servei del contenidor a un port del host local amb el paràmetre <code>-p</code>. </p>
+<p>No podem canviar el paràmetres de llançament d'un contenidor prèviament creat així que si volem utilitzar el mateix nom de contenidor, abans l'aturarem si estava en marxa i el destruirem.</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo docker stop {nom_contenidor}
+$ sudo docker rm {nom_contenidor}
+</code></pre></div>
+<p>Sabent que el port de MySQL és el <strong>3306</strong>, el següent exemple el mapeja al port del host <strong>3307</strong>. No cal que el port del host siga distint al del contenidor (sempre i quan no estiga ocupat per un altre servei). En aquest exemple sí que és distint per clarificar en quin ordre s'escriu el port del host i el del contenidor.</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo docker run --name {nom_contenidor} -e MYSQL_ROOT_PASSWORD={password_usuari} -p 3307:3306 -d mysql:9.7
+</code></pre></div>
+<p>D'aquesta manera podriem tindre diversos contenidor de MySQL mapejats a distints ports i inclós de diferents versions.</p>
+<p>Si volem accedir amb el client de mysql haurem d'especificar explícitament la direcció IP on es troba el servidor (encara que siga al mateix equip) amb el paràmetre <code>-h</code>. Si havíem canviat el port per defecte de MySQL també haurem d'especificar-lo amb el paràmetre <code>-P</code>.</p>
+<div class="language-text highlight"><pre><span></span><code>$ mysql -h 127.0.0.1 -P 3307 -u root -p
+</code></pre></div>
+<p>La següent imatge mostra un llistat d'instruccions bàsiques de Docker:</p>
+<figure style="align: center;">
+    <img src="./images/docker-cheatsheet.png">
+    <figcaption>Docker Cheat Sheet</figcaption>
+</figure>
+
+<p>Per defecte els contenidors no es reinicien automàticament una vegada s'aturen. Podem configurar que es reinicien quan s'aturen amb el paràmetre <code>--restart</code>. La següent imatge mostra els valors possibles del paràmetre:</p>
+<figure style="align: center;">
+    <img src="./images/docker-restart.png">
+    <figcaption>Polítiques de reinici de contenidors Docker</figcaption>
+</figure>
+
+<p>La següent instrucció crea i llança un contenidor perquè es reinicie automàticament si hi ha una aturada accidental del contenidor. Si s'atura manualment només quan es reinicie Docker es reiniciarà el contenidor.</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo docker run --name {nom_contenidor} -e MYSQL_ROOT_PASSWORD={password_usuari} -p 3307:3306 --restart always -d mysql:9.7
+</code></pre></div>
+<h2 id="desplegament-amb-docker-compose">Desplegament amb Docker Compose</h2>
+<p>Tot i que l'ús de la línia de comandes de Docker run és útil per a proves ràpides, quan necessitem configurar escenaris més complexos o assegurar-nos que els paràmetres de llançament siguen sempre els mateixos (com per exemple en entorns de laboratori), és molt més eficient utilitzar Docker Compose. </p>
+<p>Docker Compose permet definir i gestionar contenidors mitjançant un fitxer de text en format YAML (habitualment anomenat <code>compose.yaml</code> o <code>docker-compose.yml</code>). D'aquesta manera, tota la configuració queda documentada i es pot versionar. En Ubuntu hauràs d'instal·lar el paquet <code>docker-compose-v2</code>.</p>
+<p>A continuació mostrem un exemple d'arxiu compose.yaml que llança MySQL, mapeja els ports i configura dos volums: un per a salvaguardar les dades i un altre per poder afegir fitxers de configuració personalitzats.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">mysql_server</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:9.7</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">nom_contenidor</span><span class="p p-Indicator">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">password_usuari</span><span class="p p-Indicator">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"3307:3306"</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</span></code></pre></div>
+<p>A continuació una llista d'alguns comandaments de <code>docker compose</code>:</p>
+<ul>
+<li>
+<p><code>docker compose up -d:</code> Construeix (si és necessari), crea, inicia i connecta els contenidors en segon pla deixant la terminal lliure.</p>
+</li>
+<li>
+<p><code>docker compose down</code>: Atura i elimina els contenidors. Si s'afegeix el paràmetre <code>-v</code> (<code>docker compose down -v</code>), també elimina els volums associats perdent les dades persistents.</p>
+</li>
+<li>
+<p><code>docker compose start</code>: Inicia els contenidors del projecte que ja estaven creats però estaven aturats.</p>
+</li>
+<li>
+<p><code>docker compose stop</code>: Atura els contenidors en execució sense destruir-los ni alterar la seua configuració interna.</p>
+</li>
+<li>
+<p><code>docker compose restart</code>: Reinicia els contenidors del projecte actual.</p>
+</li>
+<li>
+<p><code>docker compose ps</code>: Mostra una llista dels contenidors gestionats per l'arxiu YAML actual, indicant el seu estat i els ports mapejats.</p>
+</li>
+</ul>
+<h2 id="volums">Volums</h2>
+<p>Els contenidors són efímers per naturalesa. Això vol dir que si aturem i esborrem el contenidor (amb <code>docker rm</code>), es perden totes les modificacions realitzades al seu interior, incloses les bases de dades i les taules que havíem creat.</p>
+<p>Per a fer que les dades siguen persistents, s'utilitzen els volums, que permeten enllaçar (mapejar) un directori de la nostra màquina amfitriona (el host) amb un directori de l'interior del contenidor. </p>
+<p>A continuació es mostra una versió ampliada de l'anterior exemple, amb 2 volums: un per als directoris de configuració de MySQL y l'altre per al directori on es troben les dades emmagatzemades a MySQL.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">mysql_server</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:9.7</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">nom_contenidor</span><span class="p p-Indicator">}</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">password_usuari</span><span class="p p-Indicator">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"3307:3306"</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="c1"># Volum per a les dades de les BD</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./dades_mysql:/var/lib/mysql</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="c1"># Volum per a fitxers de configuració de MySQL</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./conf_mysql:/etc/mysql/conf.d</span>
+</span></code></pre></div>
+<h2 id="inicialitzacio-automatica-de-la-base-de-dades-entrypoint">Inicialització automàtica de la base de dades (Entrypoint)</h2>
+<p>Una característica molt potent de la imatge oficial de MySQL (que també utilitzen com a estàndard altres sistemes com PostgreSQL o MariaDB) és la capacitat d'executar automàticament scripts durant el primer arrancament del contenidor.</p>
+<p>Això s'aconsegueix gràcies a l'Entrypoint (el procés d'inici) del contenidor, que està programat per cercar i executar qualsevol script situat a la ruta interna <code>/docker-entrypoint-initdb.d/</code>.</p>
+<p>Per a utilitzar-ho, només cal mapejar un directori local que continga els nostres scripts a eixa ruta mitjançant un nou volum al fitxer compose.yaml:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">      </span><span class="c1"># Volum per a l'auto-inicialització</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./init_scripts:/docker-entrypoint-initdb.d</span>
+</span></code></pre></div>
+<p>El contenidor processarà els arxius d'aquesta carpeta seguint un estricte ordre alfabètic. Per això, és una convenció molt recomanable afegir prefixos numèrics als arxius per assegurar l'ordre lògic d'execució (per exemple, primer crear l'esquema i després inserir les dades).</p>
+<p>Els formats d'arxiu suportats són:</p>
+<ul>
+<li><code>.sql</code>: Arxius de text pla amb instruccions SQL.</li>
+<li><code>.sql.gz</code>: Arxius SQL comprimits amb gzip. El contenidor els descomprimeix i executa al vol, sent ideal per a estalviar espai quan movem grans volums de dades.</li>
+<li><code>.sh</code>: Scripts de terminal (Bash) per a tasques més avançades d'inicialització.</li>
+</ul>
+<p>Aquest procés d'importació automàtica només s'executa la primera vegada que s'engega el contenidor, és a dir, quan detecta que la carpeta de dades del sistema (<code>/var/lib/mysql</code>) està completament buida. Si el contenidor es reinicia o ja té dades creades prèviament, ignorarà el contingut d'aquesta carpeta per motius de seguretat.</p>
+<h2 id="exercici">Exercici</h2>
+<p>Criteris d'avaluació 1f, 1g, 1h, 1i, 1j.</p>
+<p><strong>Instal·lació de MySQL amb Docker</strong></p>
+<ul>
+<li>Instal·la MySQL 8.4 a la instància EC2 de l'anterior exercici. Recorda mapejar el servei del contenidor a un port distint del 3306 perquè no entre en conflicte amb l'anterior servidor instal·lat.</li>
+<li>Importa les BD <strong>world</strong> i <strong>sakila</strong> i comprova que les dades es creen correctament.</li>
+</ul>
+<p><strong>Persistència i gestió amb Docker Compose</strong></p>
+<ul>
+<li>Crea un directori nou al teu sistema i crea un fitxer <code>compose.yaml</code> per a desplegar un servidor MySQL 8.4.</li>
+<li>Configura l'arxiu YAML per mapejar el servei a un port lliure (per exemple, 3307) i defineix un volum local mapejat a la ruta interna <code>/var/lib/mysql</code>.</li>
+<li>Llança l'entorn en segon pla utilitzant <code>docker compose up -d</code>.</li>
+<li>Connecta't al nou contenidor (recorda utilitzar el nou port) i crea una base de dades de prova amb algunes dades (o importa novament la BD <strong>world</strong>).</li>
+<li>Atura i elimina el contenidor executant <code>docker compose down</code>.</li>
+<li>Torna a llançar el contenidor amb <code>docker compose up -d</code> i comprova mitjançant el client de MySQL que la base de dades i les dades segueixen intactes gràcies al volum creat.</li>
+</ul>
+<p><strong>Auto-inicialització de bases de dades</strong></p>
+<ul>
+<li>Crea una carpeta anomenada init_scripts al mateix directori on tens el teu fitxer compose.yaml.</li>
+<li>Copia l'arxiu world.sql dins d'aquesta nova carpeta i canvia-li el nom a <code>01_world.sql</code> seguint les bones pràctiques d'ordenació.</li>
+<li>Fes ho mateix amb els de sakila.</li>
+<li>Edita el fitxer compose.yaml per afegir el nou mapeig de volums cap a <code>/docker-entrypoint-initdb.d</code>.</li>
+<li>Com que l'script només s'executa si la base de dades és nova, atura i destrueix el contenidor actual (<code>docker compose down</code>). Després, elimina el directori del host on estan les dades de les BD de MySQL.</li>
+<li>Llança de nou l'entorn amb <code>docker compose up -d</code>.</li>
+<li>Revisa els registres d'arrancada executant <code>docker compose logs -f</code>. Hauries de vore missatges indicant que s'està processant els arxius <code>sql</code>.</li>
+<li>Connecta't amb el client de MySQL al port corresponent i verifica que estan les BD amb les seues dades.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
