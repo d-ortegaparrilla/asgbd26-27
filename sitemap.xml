@@ -2,22 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://d-ortegaparrilla.github.io/asgbd26-27/index.html</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-10-01</lastmod>
     </url>
     <url>
          <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT1/docker-instalacio.html</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-10-01</lastmod>
     </url>
     <url>
          <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT1/introduccio.html</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-10-01</lastmod>
     </url>
     <url>
          <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT1/mysql-caracteristiques.html</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-10-01</lastmod>
     </url>
     <url>
          <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT1/mysql-instalacio.html</loc>
-         <lastmod>2026-09-25</lastmod>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT2/esquemes.html</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT2/innodb.html</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT2/introduccio.html</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT2/logs.html</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT2/motors.html</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT2/seguretat.html</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://d-ortegaparrilla.github.io/asgbd26-27/UT2/variables.html</loc>
+         <lastmod>2026-10-01</lastmod>
     </url>
 </urlset>
