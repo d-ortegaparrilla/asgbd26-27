@@ -495,6 +495,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="seguretat.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat en MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -637,7 +665,7 @@ ALTER TABLE una_taula ENGINE=MyISAM;
 <p>Podem utilitzar la variable <strong>disabled_storage_engines</strong> per definir quins motors d'emmagatzematge no es poden utilitzar per crear taules o espais de taula. Per defecte està buit (no hi ha motors desactivats), però es pot establir en una llista separada per 
 comes d’un o més motors.</p>
 <div class="language-text highlight"><pre><span></span><code>[mysqld]
-disabled_storage_engines="MyISAM,BLACKHOLE,FEDERATED,ARCHIVE"
+disabled_storage_engines=&quot;MyISAM,BLACKHOLE,FEDERATED,ARCHIVE&quot;
 </code></pre></div>
 <h2 id="innodb">InnoDB</h2>
 <p>InnoDB és fiable, eficient i amb totes les funcions. Gairebé tot el que espereu d'un RDBMS modern es pot aconseguir d'alguna manera amb InnoDB. Les dades es guarden en disc: un fitxer per a la definició de la taula, i un "tablespace" per a guardar conjuntament dades i índexs. El tablespace pot consistir en un o més fitxers, o fins i tot una partició sencera en disc.</p>

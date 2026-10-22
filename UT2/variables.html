@@ -14,6 +14,8 @@
         <link rel="prev" href="introduccio.html">
       
       
+        <link rel="next" href="seguretat.html">
+      
       
         
       
@@ -617,6 +619,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="seguretat.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat en MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -807,8 +837,8 @@
 <li><strong>SHOW BINARY LOGS</strong>: mostra el llistat de fitxers log binaris i la seua grandària del servidor.</li>
 </ul>
 <p>Per consultar el valor d'una variable en concret podem fer ús de la següent sintaxi:</p>
-<div class="language-text highlight"><pre><span></span><code>SHOW [GLOBAL | SESSION] VARIABLES [LIKE 'pattern' | WHERE expr]
-SHOW [GLOBAL | SESSION] STATUS [LIKE 'pattern' | WHERE expr]
+<div class="language-text highlight"><pre><span></span><code>SHOW [GLOBAL | SESSION] VARIABLES [LIKE &#39;pattern&#39; | WHERE expr]
+SHOW [GLOBAL | SESSION] STATUS [LIKE &#39;pattern&#39; | WHERE expr]
 </code></pre></div>
 <p>El comandament SET s'utilitza per establir les variables dinàmiques i definides per l'usuari. Els canvis realitzats no són persistents. Reiniciar el servidor o el client, depèn de l'àmbit farà que es reprenguen els valors de l'arxiu de configuració.</p>
 <p>Es pot persistir els canvis amb la instrucció <strong>SET PERSIST</strong>, guardant-se les dades a l'arxiu <strong>datadir/mysqld-auto.cnf</strong>.</p>

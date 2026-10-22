@@ -11,10 +11,8 @@
         <link rel="canonical" href="https://d-ortegaparrilla.github.io/asgbd26-27/UT2/seguretat.html">
       
       
-        <link rel="prev" href="motors.html">
+        <link rel="prev" href="variables.html">
       
-      
-        <link rel="next" href="variables.html">
       
       
         
@@ -495,6 +493,136 @@
 
               
             
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat en MySQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="seguretat.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat en MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#restauracio-de-la-contrasenya-del-usuari-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restauració de la contrasenya del usuari root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracio-de-connexions-encriptades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuració de connexions encriptades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracio-de-les-connexions-xifrades-al-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuració de les connexions xifrades al client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acces-remot-al-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accés remot al servidor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -533,17 +661,6 @@
     <span class="md-ellipsis">
       
         Restauració de la contrasenya del usuari root
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mysql_secure_installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        mysql_secure_installation
       
     </span>
   </a>
@@ -629,21 +746,9 @@ skip-grant-tables = ON
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
 </span></code></pre></div>
 <p>La següent instrucció canviaria la contrasenya de l'usuari root:</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">'root'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">'Nova contrasenya'</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;Nova contrasenya&#39;</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Només quedaria eixir de la consola de mysql, deixarem l'arxiu de configuració al seu estat inicial i reiniciem el servei de mysql.</p>
-<h2 id="mysql_secure_installation">mysql_secure_installation</h2>
-<p>Un dels primers passos per assegurar la instal·lació de MySQL és executar l'script <strong>mysql_secure_installation</strong>:</p>
-<div class="language-text highlight"><pre><span></span><code>sudo mysql_secure_installation
-</code></pre></div>
-<p>Amb aquest script:</p>
-<ul>
-<li>Canvia la política de contrasenyes (forta) (<strong>validate_password</strong>)</li>
-<li>Elimina l'usuari anònim, el qual permet a qualsevol accedir a MySQL sense tindre creat un usuari.</li>
-<li>Deshabilita accés remot de root a MySQL.</li>
-<li>Elimina la base de dades test, a la qual pot accedir qualsevol.</li>
-<li>Recàrrega la taula de privilegis del sistema.</li>
-</ul>
 <h2 id="configuracio-de-connexions-encriptades">Configuració de connexions encriptades</h2>
 <p>Es pot configurar MySQL perquè les connexions al servidor es realitzen encriptades.</p>
 <p>Per demanar que els clients es connecten mitjançant connexions xifrades, s'ha d'activar la variable de sistema <strong>require_secure_transport</strong>. </p>
@@ -681,7 +786,7 @@ ssl-mode = MODE_CONNEXIO
 <p>Per comprovar si la connexió del client amb el servidor està xifrada podem consultar la variable d'estat <strong>Ssl_version</strong>. Si no té cap valor és que la connexió no està xifrada.</p>
 <h2 id="acces-remot-al-servidor">Accés remot al servidor</h2>
 <p>Per accedir de manera remota al servidor crearem un usuari que puga connectar-se des de qualsevol direcció. Limitarem els permisos d'aquest usuari a una BD específica.</p>
-<div class="language-text highlight"><pre><span></span><code>CREATE USER nom_usuari IDENTIFIED BY 'password';
+<div class="language-text highlight"><pre><span></span><code>CREATE USER nom_usuari IDENTIFIED BY &#39;password&#39;;
 GRANT ALL PRIVILEGES ON nom_bd.* TO nom_usuari;
 </code></pre></div>
 <h2 id="exercici">Exercici</h2>
