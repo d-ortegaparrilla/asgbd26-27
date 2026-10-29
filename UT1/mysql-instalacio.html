@@ -1,0 +1,868 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://d-ortegaparrilla.github.io/asgbd26-27/UT1/mysql-instalacio.html">
+      
+      
+        <link rel="prev" href="mysql-caracteristiques.html">
+      
+      
+        <link rel="next" href="docker-instalacio.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Instal·lació de MySQL - Administració de Sistemes Gestors de Base de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installacio-de-mysql" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-header__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Administració de Sistemes Gestors de Base de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instal·lació de MySQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-nav__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    Administració de Sistemes Gestors de Base de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT1. Instal·lació de sistemes gestors de base de dades.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT1. Instal·lació de sistemes gestors de base de dades.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduccio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció als sistemes gestors de bases de dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mysql-caracteristiques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Característiques de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="mysql-instalacio.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installacio-en-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instal·lació en Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació en Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-des-del-repositori-oficial-apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instal·lació des del repositori oficial APT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primers-passos-amb-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primers passos amb MySQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker-instalacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL amb un contenidor de Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT2. Configuració de sistemes gestors de base de dades.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT2. Configuració de sistemes gestors de base de dades.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT2/introduccio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT2/variables.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables i opcions de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT2/seguretat.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat en MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT2/motors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors d'emmagatzematge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installacio-en-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instal·lació en Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació en Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-des-del-repositori-oficial-apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instal·lació des del repositori oficial APT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primers-passos-amb-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primers passos amb MySQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installacio-de-mysql">Instal·lació de MySQL</h1>
+<p>Els paquets de distribució per a MySQL estan disponibles per a diverses plataformes, incloses les distribucions de Linux, Windows i macOS. Aquests paquets proporcionen una manera flexible i ràpida de començar a utilitzar MySQL. L'última versió LTS de MySQL és la 8.4.</p>
+<h2 id="installacio-en-linux">Instal·lació en Linux</h2>
+<p>En Linux tenim diverses possibilitats per a fer la instal·lació:</p>
+<ul>
+<li>Descarregar el paquet amb la versió de MySQL per al nostre sistema operatiu de <a href="https://dev.mysql.com/downloads/">https://dev.mysql.com/downloads/</a>. </li>
+<li>Des de l'anterior pàgina es poden configurar els repositoris oficial de MySQL compatibles con distintes distribucions Linux.</li>
+<li>Utilitzar els repositoris de la distribució per a fer la instal·lació. Moltes distribucions opten per incorporar el fork MariaDB Server front MySQL Community Edition.</li>
+<li>Compilar la nostra pròpia versió des del codi font.</li>
+</ul>
+<h3 id="installacio-des-del-repositori-oficial-apt">Instal·lació des del repositori oficial APT</h3>
+<p>A distribucions basades en Debian/Ubuntu configurarem el repositori oficial APT. Primerament s'ha d'obtindre l'arxiu <strong>deb</strong> que permet la configuració del repositori oficial. El nom de l'arxiu té el format <code>mysql-apt-config_{version-number}_all.deb</code></p>
+<p>{version-number}: Versió de la configuració del repositori de MySQL.</p>
+<p>Instal·la el deb descarregat al SO:</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo dpkg -i mysql-apt-config_{version-number}_all.deb
+</code></pre></div>
+<p>Instal·la MySQL amb el següent comandament:</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo apt install mysql-server
+</code></pre></div>
+<p>Açò instal·la el paquet de MySQL server (mysql-server) i els paquets per al components requerits per al servidor, incloent els paquets del client (mysql-community-client), els missatges comuns d'errors i el conjunt de caràcters per al client i el servidor (mysql-community-common), i les libreries compartides (mysql-community-libs).</p>
+<p>En el procés d'instal·lació del paquet es demana una contrasenya per al superusuari <code>'root'@'localhost'</code>.</p>
+<p>A Ubuntu el servidor s'arranca automàticament després de l'instalació però és interessant conèixer els comandaments següents.</p>
+<p>Per arrancar el servidor de MySQL:</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo systemctl start mysql
+</code></pre></div>
+<p>Per comprovar l'estat del servidor:</p>
+<div class="language-text highlight"><pre><span></span><code>$ systemctl status mysql
+</code></pre></div>
+<p>Per activar el servidor i que arranque a l'iniciar de nou el SO:</p>
+<div class="language-text highlight"><pre><span></span><code>$ sudo systemctl enable mysql
+</code></pre></div>
+<p>Es convenient consultar el fitxer de registre d'errors <code>/var/log/mysql/error.log</code> per comprovar que el servidor ha arrancat correctament.</p>
+<h2 id="primers-passos-amb-mysql">Primers passos amb MySQL</h2>
+<p>Per comprovar el funcionament del servidor accedim a ell amb el client:</p>
+<div class="language-text highlight"><pre><span></span><code>$ mysql -u root -p
+</code></pre></div>
+<p>Podem passar un script SQL perquè s'execute en el moment d'accedir amb el client:</p>
+<div class="language-text highlight"><pre><span></span><code>$ mysql -u root -p &lt; "arxiu.sql"
+</code></pre></div>
+<p>Algunes ordres bàsiques són:</p>
+<div class="language-text highlight"><pre><span></span><code>SHOW databases; -- mostra les BD existents al servidor
+USE nom_bbdd; -- accedeix a una BD
+SHOW tables; -- mostra les taules d'una BD
+DESCRIBE nom_taula; -- mostra els detalls d'una taula (columnes, tipus, claus...)
+CREATE DATABASE nom_bbdd; -- crea una BD
+DROP DATABASE nom_bbdd; -- esborra una BD
+</code></pre></div>
+<h2 id="exercici">Exercici</h2>
+<p>Criteris d'avaluació 1f, 1g, 1h, 1i, 1j.</p>
+<p><strong>Instal·lació de MySQL Community Edition</strong></p>
+<ul>
+<li>Aquesta pràctica es realitzarà dins el Learner Lab d'AWS del mòdul. Documenta amb captures de pantalla els passos seguits.</li>
+<li>Crea una instància d'EC2 <strong>t3.small</strong>.</li>
+<li>El SO de la instància EC2 serà una distribució Linux Ubuntu.</li>
+<li>Crea un <strong>security group</strong> anomenat <strong>SSH</strong> que permeta la connexió SSH des de qualsevol direcció IP (mala pràctica). Assigna aquest <strong>security group</strong> a la nova instància.</li>
+<li>La configuració de la instància es realitzarà via SSH des de l'equip client de l'alumne. Genera una clau privada <strong>.pem</strong> en AWS per fer les connexions SSH i assigna-les a la instància. </li>
+<li>Realitza la instal·lació seguint els passos necessaris. Comprova que està en marxa el servidor i fes que el servei es pose en marxa automàticament després de l'inici de la instància. </li>
+<li>Una vegada realitzada la instal·lació mostra el contingut de l'arxiu de log d'errors i connecta't amb el client de MySQL amb l'usuari <code>'root@localhost'</code>. Si tot funciona correctament, ix del client.</li>
+<li>Anem a crear una BD d'exemple i a inserir dades a ella. Per això, descarrega els arxius <strong>.zip</strong> de les BD d'exemple <strong>sakila</strong> i <strong>world</strong> de la pàgina <a href="https://dev.mysql.com/doc/index-other.html">https://dev.mysql.com/doc/index-other.html</a> i executa els scripts per crear auquestes BD. Executa alguna de les ordres bàsiques per mostrar que s'han creat correctament les dades (SHOW DATABASES, SHOW TABLES, SELECTS...).</li>
+<li>Després de finalitzar la pràctica atura la instància EC2.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

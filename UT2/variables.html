@@ -1,0 +1,948 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://d-ortegaparrilla.github.io/asgbd26-27/UT2/variables.html">
+      
+      
+        <link rel="prev" href="introduccio.html">
+      
+      
+        <link rel="next" href="seguretat.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Variables i opcions de MySQL - Administració de Sistemes Gestors de Base de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#variables-i-opcions-de-mysql" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-header__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Administració de Sistemes Gestors de Base de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Variables i opcions de MySQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Administració de Sistemes Gestors de Base de Dades" class="md-nav__button md-logo" aria-label="Administració de Sistemes Gestors de Base de Dades" data-md-component="logo">
+      
+  <img src="../favicon.png" alt="logo">
+
+    </a>
+    Administració de Sistemes Gestors de Base de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT1. Instal·lació de sistemes gestors de base de dades.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT1. Instal·lació de sistemes gestors de base de dades.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT1/introduccio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció als sistemes gestors de bases de dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT1/mysql-caracteristiques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Característiques de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT1/mysql-instalacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT1/docker-instalacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instal·lació de MySQL amb un contenidor de Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT2. Configuració de sistemes gestors de base de dades.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT2. Configuració de sistemes gestors de base de dades.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduccio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables i opcions de MySQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="variables.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables i opcions de MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arxiu-de-configuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arxiu de configuració
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcions-en-linia-de-comandaments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opcions en línia de comandaments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipus-de-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipus de variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-de-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables de sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-destat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables d'estat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandaments-per-gestionar-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandaments per gestionar variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="seguretat.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat en MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="motors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors d'emmagatzematge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arxiu-de-configuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arxiu de configuració
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcions-en-linia-de-comandaments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opcions en línia de comandaments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipus-de-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipus de variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-de-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables de sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-destat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables d'estat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandaments-per-gestionar-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandaments per gestionar variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="variables-i-opcions-de-mysql">Variables i opcions de MySQL</h1>
+<p>Una de les tasques més importants de l'administrador del SGBD és conèixer el conjunt de variables del servidor i les seues respectives opcions per realitzar un ajustament òptim d'elles. Es poden establir les opcions d'aquestes variables al fitxer <strong>my.cnf</strong> (Linux) o <strong>my.ini</strong> (Windows), en la línia de comandaments o mitjançat les variables amb el comandament <strong>SET</strong>.</p>
+<p>Les opcions en la línia de comandaments tenen precedència sobre els valors especificats al fitxer de configuració i les variables d'entorn. Els valors especificats al fitxer de configuració té preferència sobre les de les variables d'entorn.</p>
+<p>Les opcions especificades a l'arxiu de configuració es carreguen quan arranca el servidor i són permanents. És el mètode més utilitzat.</p>
+<h2 id="arxiu-de-configuracio">Arxiu de configuració</h2>
+<p>L'arxiu <strong>/etc/my.cnf</strong> (o <strong>/etc/mysql/my.cnf</strong>) permet la configuració permanent de les opcions. També poden configurar-se paràmetres específic per a un usuari concret a <strong>~/.my.cnf</strong>.</p>
+<p>L'arxiu de configuració està organitzat en seccions:</p>
+<ul>
+<li><strong>[mysqld]</strong>: opcions del servidor mysql.</li>
+<li><strong>[mysql]</strong>: opcions del client en text mysql.</li>
+<li><strong>[mysqldump]</strong>: opcions de mysqldump.</li>
+<li><strong>[client]</strong>: agrupa opcions per a diversos clients: mysql, mysqldump, mysqladmin...</li>
+</ul>
+<h2 id="opcions-en-linia-de-comandaments">Opcions en línia de comandaments</h2>
+<p>Encara que normalment arrencarem el servei amb <strong>systemctl</strong>, es pot fer-ho també de manera manual passant paràmetres de configuració com al següent exemple:</p>
+<div class="language-text highlight"><pre><span></span><code>mysqld --skip-grant-tables --console
+</code></pre></div>
+<p>Aquest exemple arrencaria el servei de MySQL sense taula de permisos i enviant a consola els missatges.</p>
+<p>No es recomana aquest mètode d'arrencar el servei mes que en casos puntuals.</p>
+<h2 id="tipus-de-variables">Tipus de variables</h2>
+<p>Les variables a MySQL poden ser de tipus:</p>
+<ul>
+<li><strong>Dinàmiques - estàtiques</strong>: segons si són modificables o no en temps d'execució.</li>
+<li><strong>Globals - de sessió</strong>: segons si afecten totes les connexións o només a un client en particular.</li>
+<li><strong>D'estat - de sistema</strong>: segons si es refereix a l'estat del servidor en un moment donat o al seu comportament general.</li>
+</ul>
+<h2 id="variables-de-sistema">Variables de sistema</h2>
+<p>Les variables de sistema del servidor són aquelles que ens determinaran el funcionament del nostre servidor.</p>
+<p>Per obtindre una llista de les variables del servidor, podem executar la instrucció:</p>
+<div class="language-text highlight"><pre><span></span><code>mysqld --verbose --help
+</code></pre></div>
+<p>Es pot consultar el <a href="https://dev.mysql.com/doc/refman/9.7/en/server-system-variable-reference.html">manual</a> per saber tota la informació d'una variable (fitxer d'opcions, domini, SET, abast, dinàmica, valor per defecte,...).</p>
+<p>Algunes variables de sistema importants són:</p>
+<ul>
+<li><strong>bind_address</strong>: direcció IP del servidor quan en té més d'una.</li>
+<li><strong>read_buffer_size</strong>: grandària del buffer de lectura utilitzat a distints motors d'emmagatzematge (no a InnoDB),</li>
+<li><strong>join_buffer_size</strong>: grandària del buffer quan es realitzen joins amb taules sense índexs.</li>
+<li><strong>max_connections</strong>: nombre màxim de connexions</li>
+<li><strong>thread_cache_size</strong>: memòria cau de threads</li>
+</ul>
+<h2 id="variables-destat">Variables d'estat</h2>
+<p>Són variables què ofereixen informació sobre l'estat del servidor. Es pot consultar el llistat complet de variables d'estat al següent <a href="https://dev.mysql.com/doc/refman/9.7/en/server-status-variable-reference.html">enllaç</a>.</p>
+<p>Algunes variables d'estat importants són:</p>
+<ul>
+<li><strong>Uptime</strong>: nombre de segons que el servidor ha estat funcionant ininterrompudament.</li>
+<li><strong>Max_used_connections</strong>: nombre màxim de connexions simultànies des de que es va arrencar el servidor.</li>
+<li><strong>Queries</strong>: nombre de sentències executades pel servidor.</li>
+<li><strong>Aborted_clients</strong>: nombre de connexions que han sigut abortades perquè el client ha mort sense tancar la connexió correctament.</li>
+<li><strong>Aborted_connects</strong>: nombre d'intents fallits de connexió al servidor.</li>
+<li><strong>Threads_connected</strong>: nombre de connexions actualment obertes.</li>
+<li><strong>Slow_queries</strong>: nombre de consultes que han tardat més temps que la variable de sistema <strong>slow_launch_time</strong></li>
+</ul>
+<h2 id="comandaments-per-gestionar-variables">Comandaments per gestionar variables</h2>
+<p>Només podem fer dos operacions sobre les variables: mostrar el seu valor amb el comandament <strong>SHOW</strong> i modificar-lo amb el comandament <strong>SET</strong> (només les variables dinàmiques i definides per l'usuari).</p>
+<p>A continuació, coment les opcions més utilitzades del comandament <strong>SHOW</strong>:</p>
+<ul>
+<li><strong>SHOW ERRORS</strong>: mostra els missatges d'error del servidor.</li>
+<li><strong>SHOW WARNINGS</strong>: mostra els missatges d'error i d'advertència.</li>
+<li><strong>SHOW VARIABLES</strong>: mostra les variables de sistema i el seu valor.</li>
+<li><strong>SHOW STATUS</strong>: mostra les variables d'estat i el seu valor.</li>
+<li><strong>SHOW BINARY LOGS</strong>: mostra el llistat de fitxers log binaris i la seua grandària del servidor.</li>
+</ul>
+<p>Per consultar el valor d'una variable en concret podem fer ús de la següent sintaxi:</p>
+<div class="language-text highlight"><pre><span></span><code>SHOW [GLOBAL | SESSION] VARIABLES [LIKE 'pattern' | WHERE expr]
+SHOW [GLOBAL | SESSION] STATUS [LIKE 'pattern' | WHERE expr]
+</code></pre></div>
+<p>El comandament SET s'utilitza per establir les variables dinàmiques i definides per l'usuari. Els canvis realitzats no són persistents. Reiniciar el servidor o el client, depèn de l'àmbit farà que es reprenguen els valors de l'arxiu de configuració.</p>
+<p>Es pot persistir els canvis amb la instrucció <strong>SET PERSIST</strong>, guardant-se les dades a l'arxiu <strong>datadir/mysqld-auto.cnf</strong>.</p>
+<figure style="align: center;">
+    <img src="./images/SET.png">
+    <figcaption>Comandament SET</figcaption>
+</figure>
+
+<p>Exemples:</p>
+<div class="language-text highlight"><pre><span></span><code>SET sort_buffer_size = 10 * 1024 * 1024;
+SET GLOBAL sort_buffer_size = 10485760; # canvi per a tots
+SET SESSION sort_buffer_size = 20971520; # canvi per a aquesta sessió
+</code></pre></div>
+<h2 id="exercici">Exercici</h2>
+<p>Criteris d'avaluació 2a, 2f, 2g, 2h.</p>
+<ul>
+<li>Canvia el port per defecte pel que s'accedeix al servei de mysql. Quin és el port per defecte?. Per què seria útil canviar el port?</li>
+<li>Consulta el criteri d'avaluació 2g a la portada del materials i estableix el valor a 2 variables del servidor relacionades amb aquest criteri.</li>
+<li>Per què serveix l'opció <strong>bind-address</strong>? Com la utilitzariem per augmentar la seguretat de la nostra instal·lació?</li>
+<li>I l'opció <strong>local-infile</strong>? </li>
+<li>Al següent <a href="https://www.tutorialspoint.com/mysql/mysql_load_data.htm">enllaç</a> pots consultar com podem carregar dades a una taula mitjançant el comandament <strong>LOAD DATA</strong>. Crea una BD anomenada <strong>prova</strong>. A ella crea una taula de la teua invenció amb 3 atributs. Crea amb ChatGPT o similar un arxiu <strong>csv</strong> que continga dades d'exemple aleatoris per aquesta taula. Carrega l'arxiu amb el comandament LOAD DATA. Abans de carregar les dades comprova el valor de la variable de sistema <strong>secure_file_priv</strong> i estableix el seu valor perquè només es puguen carregar les dades des d'un directori concret.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["header.autohide", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
