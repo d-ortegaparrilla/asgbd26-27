@@ -97,7 +97,7 @@ A continuació es mostra el llistat d'UT, així com el seu RA associat i el perc
 | Títol de la UT | RA | Percentatge | Sessions | Trimestre
 | -------------- | -- | ----------- | -------- | ---------
 | [UT1. Instal·lació de sistemes gestors de base de dades.](UT1/introduccio.md) | RA1 | 10% | 6 | 1
-| UT2. Configuració de sistemes gestors de base de dades. | RA2 | 15% | 9 | 1
+| [UT2. Configuració de sistemes gestors de base de dades.](UT2/introduccio.md) | RA2 | 15% | 9 | 1
 | UT3. Control d'accés. | RA3 | 15% | 9 | 1
 | UT4. Automatització de tasques. Construcció de guions d'administració. | RA4 | 20% | 12 | 1-2
 | UT5. Optimització i monitorització. | RA5 | 20% | 12 | 2

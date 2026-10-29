@@ -2,7 +2,7 @@ name: Despliegue MkDocs
 on:
   push:
     branches:
-      - master # Cambia esto si tu rama principal se llama 'master'
+      - main # Cambia esto si tu rama principal se llama 'master'
 permissions:
   contents: write
 jobs:

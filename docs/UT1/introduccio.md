@@ -127,5 +127,4 @@ Exemples: MongoDB, CouchDB, Amazon DocumentDB, Amazon DynamoDB, Azure CosmosDB.
 ## Exercici
 Criteris d'avaluació 1a, 1b, 1c, 1d, 1e.
 
-- Tens 20 minuts per a empapar-te fent ús dels recursos que consideres sobre les avantatges i inconvenients dels 3 tipus de SGBD vists a la teoria. A continuació el professor dirigirà un debat on hauràs de raonar davant qüestions sobre les situacions on seria convenient fer ús d'un o un altre tipus. 
-
+- El teu cap d'equip et demana consell sobre el proper RDBMS a utilitzar per a la vostra aplicació web de Lliga Fantasy. Fins ara estaven fent ús d'Oracle a les seues aplicacions corporatives però pensa que potser no siga una bona opció. Quin RDBMS lliure podria utilitzar-se? Quines avantatges i inconvenients presenta respecte Oracle? La comparativa ha de contemplar qüestions com la popularitat, eines disponibles (automatizació, monitoratge, escabilitat, recuperació...), el rendiment, preu de les llicències, tipus de llicència (oberta o propietària), els requisits de hardware i software, suport d'actualitzacions...

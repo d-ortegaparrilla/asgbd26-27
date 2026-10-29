@@ -1,0 +1,6 @@
+title: "UT2. Configuració de sistemes gestors de base de dades."
+nav:
+    - introduccio.md
+    - variables.md
+    - seguretat.md
+    - motors.md
